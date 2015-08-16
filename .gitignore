@@ -7,3 +7,5 @@ pom.xml.asc
 *.class
 /.lein-*
 /.nrepl-port
+/do_not_commit.md
+/*.json
