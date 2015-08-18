@@ -1,6 +1,6 @@
-(ns bitfondue-website.core-test
+(ns bitfondue.core-test
   (:require [clojure.test :refer :all]
-            [bitfondue-website.core :refer :all]))
+            [bitfondue.core :refer :all]))
 
 (deftest a-test
   (testing "FIXME, I fail."
