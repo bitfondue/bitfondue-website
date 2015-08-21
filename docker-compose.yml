@@ -1,0 +1,5 @@
+database:
+  image: postgres:9.4.4
+
+web:
+  image: clojure:lein-2.5.1
