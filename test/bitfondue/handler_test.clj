@@ -1,6 +1,7 @@
 (ns bitfondue.handler-test
-  (:require [clojure.test :refer :all]
-            [bitfondue.handler :refer :all]))
+  (:require [bitfondue.handler :refer :all]
+            [ring.mock.request :as mock])
+  (:use midje.sweet))
 
 (deftest a-test
   (testing "FIXME, I fail."
