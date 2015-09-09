@@ -1,6 +1,6 @@
-(ns bitfondue.core-test
+(ns bitfondue.handler-test
   (:require [clojure.test :refer :all]
-            [bitfondue.core :refer :all]))
+            [bitfondue.handler :refer :all]))
 
 (deftest a-test
   (testing "FIXME, I fail."

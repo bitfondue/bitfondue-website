@@ -1,4 +1,4 @@
-(ns bitfondue.core)
+(ns bitfondue.handler)
 
 (defn foo
   "I don't do a whole lot."
