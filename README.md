@@ -1,6 +1,6 @@
 # bitfondue
 
-A Clojure library designed to ... well, that part is up to you.
+Another approach at keeping things you've found on the web.
 
 ## Usage
 
