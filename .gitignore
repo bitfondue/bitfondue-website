@@ -10,3 +10,4 @@ pom.xml.asc
 /.nrepl-port
 /do_not_commit.md
 /*.json
+/.env_*
