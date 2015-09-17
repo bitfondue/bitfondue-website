@@ -1,7 +1,9 @@
 database:
+  restart: always
   image: postgres:9.4.4
 
 web:
+  restart: always
   build: .
   ports:
     - 80:5000
