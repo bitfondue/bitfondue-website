@@ -17,5 +17,6 @@
                                   [midje "1.7.0" :exclusions [org.clojure/clojure]]
                                   [ring-mock "0.1.5"]]
                    :plugins [[lein-midje "3.1.3"]]}}
+  :ring {:handler bitfondue.handler/app}
   :codox {:src-dir-uri "https://github.com/bitfondue/bitfondue-website/blob/master/"
           :src-linenum-anchor-prefix "L"})
