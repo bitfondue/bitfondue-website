@@ -7,3 +7,6 @@
   (GET "/" [] "Success!"))
 
 (def app app-routes)
+
+(defn -main [port]
+  (run-jetty app {:port (read-string port) :join? false}))
