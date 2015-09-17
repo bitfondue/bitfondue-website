@@ -3,3 +3,5 @@ database:
 
 web:
   build: .
+  ports:
+    - 80:5000
