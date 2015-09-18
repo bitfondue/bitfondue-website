@@ -20,5 +20,6 @@
   :ring {:handler bitfondue.handler/app}
   :uberjar-name "bitfondue-standalone.jar"
   :main bitfondue.handler
+  :min-lein-version "2.5.0"
   :codox {:src-dir-uri "https://github.com/bitfondue/bitfondue-website/blob/master/"
           :src-linenum-anchor-prefix "L"})
