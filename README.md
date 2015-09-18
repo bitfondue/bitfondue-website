@@ -1,5 +1,7 @@
 # bitfondue
 
+[![Circle CI](https://circleci.com/gh/bitfondue/bitfondue-website.svg?style=svg)](https://circleci.com/gh/bitfondue/bitfondue-website)
+
 Another approach at keeping things you've found on the web.
 
 ## Setup
