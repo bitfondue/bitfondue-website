@@ -29,4 +29,6 @@
   :main bitfondue.handler
   :min-lein-version "2.5.0"
   :codox {:src-dir-uri "https://github.com/bitfondue/bitfondue-website/blob/master/"
-          :src-linenum-anchor-prefix "L"})
+          :src-linenum-anchor-prefix "L"}
+  :aliases {"migrate"  ["run" "-m" "bitfondue.migrations/migrate"]
+            "rollback" ["run" "-m" "bitfondue.migrations/rollback"]})
