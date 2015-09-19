@@ -21,6 +21,11 @@ Another approach at keeping things you've found on the web.
 
 ## Staging/production
 
+### Application
+
+1. `heroku create`
+1. `heroku buildpacks:set https://github.com/ddollar/heroku-buildpack-multi.git`
+
 ### Database
 
 1. Running the migrations `heroku run JVM_OPTS="" lein migrate --app your-app-name`
