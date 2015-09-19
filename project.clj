@@ -18,11 +18,12 @@
                                   [midje "1.7.0" :exclusions [org.clojure/clojure]]
                                   [ring-mock "0.1.5"]]
                    :plugins [[lein-midje "3.1.3"]]}
-             :production {:plugins [[com.carouselapps/jar-copier "0.2.0"]]
-                          :java-agents [[com.newrelic.agent.java/newrelic-agent "3.20.0"]]
-                          :prep-tasks ["javac" "compile" "jar-copier"]
-                          :jar-copier {:java-agents true
-                                       :destination "resources/jars"}}}
+             :uberjar {:plugins [[com.carouselapps/jar-copier "0.2.0"]]
+                       :java-agents [[com.newrelic.agent.java/newrelic-agent "3.20.0"]]
+                       :prep-tasks ["javac" "compile" "jar-copier"]
+                       :jar-copier {:java-agents true
+                                    :destination "resources/jars"}
+                       :main bitfondue.handler, :aot :all}}
   :ring {:handler bitfondue.handler/app}
   :uberjar-name "bitfondue-standalone.jar"
   :main bitfondue.handler
