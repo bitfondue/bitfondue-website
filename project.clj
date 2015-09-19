@@ -12,7 +12,8 @@
                  [org.postgresql/postgresql "9.4-1201-jdbc41"]]
   :plugins [[lein-environ "1.0.0"]
             [lein-ring "0.8.11"]
-            [codox "0.8.13"]]
+            [codox "0.8.13"]
+            [com.carouselapps/jar-copier "0.2.0"]]
   :profiles {:dev {:dependencies [[clj-http-fake "1.0.1"]
                                   [midje "1.7.0" :exclusions [org.clojure/clojure]]
                                   [ring-mock "0.1.5"]]
@@ -21,5 +22,9 @@
   :uberjar-name "bitfondue-standalone.jar"
   :main bitfondue.handler
   :min-lein-version "2.5.0"
+  :java-agents [[com.newrelic.agent.java/newrelic-agent "3.20.0"]]
+  :prep-tasks ["javac" "compile" "jar-copier"]
+  :jar-copier {:java-agents true
+               :destination "resources/jars"}
   :codox {:src-dir-uri "https://github.com/bitfondue/bitfondue-website/blob/master/"
           :src-linenum-anchor-prefix "L"})
