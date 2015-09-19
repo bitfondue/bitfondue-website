@@ -4,7 +4,7 @@
 
 Another approach at keeping things you've found on the web.
 
-## Setup
+## Development
 
 ### Database
 
