@@ -8,6 +8,7 @@
                  [compojure "1.1.8"]
                  [ring/ring-jetty-adapter "1.2.2"]
                  [ring/ring-core "1.3.1"]
+                 [ragtime "0.5.2"]
                  [yesql "0.4.2"]
                  [org.postgresql/postgresql "9.4-1201-jdbc41"]]
   :plugins [[lein-environ "1.0.0"]
