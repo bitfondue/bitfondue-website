@@ -23,9 +23,11 @@
   (repl/rollback (load-config)))
 
 
-;; migrate the existing data into the new database
-;; parse the json line entries into a collection of maps
-(def ed (with-open [rdr (clojure.java.io/reader "existing_data.json")]
-          (doall (->> rdr
-                      line-seq
-                      (map #(parse-string % true))))))
+;; Migrate the existing data into the new database
+(defn parse-json-line-items
+  "Parses the current .json line item file into a collection of maps"
+  [file-name]
+  (with-open [rdr (clojure.java.io/reader file-name)]
+    (doall (->> rdr
+                line-seq
+                (map #(parse-string % true))))))
