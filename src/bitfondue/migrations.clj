@@ -4,14 +4,22 @@
             [bitfondue.config :as config]
             [cheshire.core :refer :all]))
 
-(defn load-config []
+;; Database Migrations
+
+(defn ^:private load-config
+  "Create the configuration map for the migration/rollback functions"
+  []
   {:datastore  (jdbc/sql-database config/database)
    :migrations (jdbc/load-resources "migrations")})
 
-(defn migrate []
+(defn migrate
+  "Helper function to be called to run the database migrations against the current environment settings"
+  []
   (repl/migrate (load-config)))
 
-(defn rollback []
+(defn rollback
+  "Helper function to be called to run the database rollbacks against the current environment settings"
+  []
   (repl/rollback (load-config)))
 
 
