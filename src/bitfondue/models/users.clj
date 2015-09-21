@@ -9,3 +9,9 @@
                           (:username user)
                           (:email user)
                           (:password user)))
+
+(defn get-user
+  "Get a user by its username"
+  [username]
+  (database/get-user config/database
+                     username))
