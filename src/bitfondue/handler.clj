@@ -4,7 +4,8 @@
   (:use [ring.adapter.jetty :as ring]))
 
 (defroutes app-routes
-  (GET "/" [] "Success!"))
+  (GET "/" [] "Success!")
+  (route/resources "/"))
 
 (def app app-routes)
 
