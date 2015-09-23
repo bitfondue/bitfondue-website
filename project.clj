@@ -12,6 +12,8 @@
                  [yesql "0.4.2"]
                  [org.postgresql/postgresql "9.4-1201-jdbc41"]
                  [cheshire "5.5.0"]
+                 [buddy/buddy-core "0.7.0"]
+                 [buddy/buddy-auth "0.7.0"]
                  [com.cemerick/friend "0.2.1"]
                  [hiccup "1.0.5"]]
   :plugins [[lein-environ "1.0.0"]
