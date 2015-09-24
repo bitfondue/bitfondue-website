@@ -22,16 +22,6 @@
   (GET "/" [] "Success!")
   (route/resources "/"))
 
-(def app (friend/authenticate
-          app-routes
-          {:allow-anon? true
-           :login-uri "/login"
-           :default-landing-uri "/"
-           :unauthorized-handler #(-> "Not Authorized"
-                                      resp/response
-                                      (resp/status 401))
-           :credential-fn #(creds/bcrypt-credential-fn users/get-user %)
-           :workflows [(workflows/interactive-form)]}))
 
 (defn -main [port]
   (run-jetty app {:port (read-string port) :join? false}))
