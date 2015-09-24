@@ -47,7 +47,8 @@
       (bad-request {:message "wrong auth data"}))))
 
 (defroutes app-routes
-  (GET "/" [] home)
+  (GET "/" [] "Success!")
+  (GET "/dashboard" [] home)
   (POST "/login" [] login)
   (route/resources "/"))
 
