@@ -8,6 +8,7 @@
                  [compojure "1.4.0"]
                  [ring/ring-core "1.3.2"]
                  [ring/ring-jetty-adapter "1.3.2"]
+                 [ring/ring-json "0.3.1" :exclusions [ring/ring-core]]
                  [ragtime "0.5.2"]
                  [yesql "0.4.2"]
                  [org.postgresql/postgresql "9.4-1201-jdbc41"]
