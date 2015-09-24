@@ -5,9 +5,9 @@
             :url "http://opensource.org/licenses/MIT"}
   :dependencies [[org.clojure/clojure "1.6.0"]
                  [environ "1.0.0"]
-                 [compojure "1.1.8"]
-                 [ring/ring-jetty-adapter "1.2.2"]
-                 [ring/ring-core "1.3.1"]
+                 [compojure "1.4.0"]
+                 [ring/ring-core "1.3.2"]
+                 [ring/ring-jetty-adapter "1.3.2"]
                  [ragtime "0.5.2"]
                  [yesql "0.4.2"]
                  [org.postgresql/postgresql "9.4-1201-jdbc41"]
