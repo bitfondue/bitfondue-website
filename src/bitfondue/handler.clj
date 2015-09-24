@@ -19,7 +19,8 @@
   (:gen-class))
 
 (defroutes app-routes
-  (GET "/" [] "Success!")
+  (GET "/" [] home)
+  (POST "/login" [] login)
   (route/resources "/"))
 
 
