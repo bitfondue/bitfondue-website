@@ -2,8 +2,15 @@ database:
   restart: always
   image: postgres:9.4.4
 
+haproxy:
+  restart: always
+  image: tutum/haproxy
+  ports:
+    - 80:80
+  links:
+    - web:web1
 web:
   restart: always
   build: .
-  ports:
-    - 80:5000
+  expose:
+    - 80
