@@ -15,3 +15,5 @@ web:
   build: .
   expose:
     - 80
+  environment:
+    VIRTUAL_HOST: bitfondue.*
