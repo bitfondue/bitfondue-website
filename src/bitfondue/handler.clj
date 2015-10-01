@@ -52,7 +52,8 @@
   (POST "/login" [] login)
   (route/resources "/"))
 
-(def auth-backend (jwe-backend {:secret secret :options {:alg :a256kw :enc :a128gcm}}))
+(def auth-backend (jwe-backend {:secret config/secret
+                                :options {:alg :a256kw :enc :a128gcm}}))
 
 (def app (-> app-routes
              (wrap-authorization auth-backend)
