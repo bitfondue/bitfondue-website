@@ -3,3 +3,7 @@
 
 (def database
   (env :database-url))
+
+;; Authentication & Authorization
+(def token-secret
+  (env :token-secret))
