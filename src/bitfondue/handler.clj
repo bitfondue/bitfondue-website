@@ -14,6 +14,7 @@
             [buddy.auth :refer [authenticated? throw-unauthorized]]
             [buddy.auth.backends.token :refer [jwe-backend]]
             [buddy.auth.middleware :refer [wrap-authentication wrap-authorization]]
+            [bitfondue.config :as config]
             (bitfondue.models [users :as users]))
   (:use [ring.adapter.jetty :as ring])
   (:gen-class))
