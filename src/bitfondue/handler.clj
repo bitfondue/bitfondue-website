@@ -43,7 +43,7 @@
     (if valid?
       (let [claims {:user (keyword username)
                     :exp (time/plus (time/now) (time/seconds 3600))}
-            token (jwe/encrypt claims secret {:alg :a256kw :enc :a128gcm})]
+            token (jwe/encrypt claims config/token-secret {:alg :a256kw :enc :a128gcm})]
         (ok {:token token}))
       (bad-request {:message "wrong auth data"}))))
 
@@ -53,7 +53,7 @@
   (POST "/login" [] login)
   (route/resources "/"))
 
-(def auth-backend (jwe-backend {:secret config/secret
+(def auth-backend (jwe-backend {:secret config/token-secret
                                 :options {:alg :a256kw :enc :a128gcm}}))
 
 (def app (-> app-routes
