@@ -13,5 +13,5 @@
         (cheshire/parse-string (.getValue val) true)
         val))))
 
-(defqueries "queries.sql")
+(defqueries "bitfondue/queries.sql")
 
