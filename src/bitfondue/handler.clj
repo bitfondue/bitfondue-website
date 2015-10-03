@@ -10,7 +10,6 @@
             [hiccup.core :as h]
             [clj-time.core :as time]
             [buddy.sign.jwe :as jwe]
-            [buddy.core.nonce :as nonce]
             [buddy.auth :refer [authenticated? throw-unauthorized]]
             [buddy.auth.backends.token :refer [jwe-backend]]
             [buddy.auth.middleware :refer [wrap-authentication wrap-authorization]]
@@ -19,7 +18,6 @@
   (:use [ring.adapter.jetty :as ring])
   (:gen-class))
 
-(def secret (nonce/random-bytes 32))
 (defn ok [d] {:status 200 :body d})
 (defn bad-request [d] {:status 400 :body d})
 
