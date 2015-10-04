@@ -47,7 +47,7 @@
                        :main bitfondue.handler, :aot :all
 
                        ;; compile the front-end
-                       :hooks ['leiningen.cljsbuild]
+                       :hooks [leiningen.cljsbuild]
                        :cljsbuild {:jar true
                                    :builds {:app
                                             {:compiler
