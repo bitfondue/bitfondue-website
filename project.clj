@@ -26,6 +26,15 @@
             [lein-ring "0.8.11"]
             [codox "0.8.13"]
             [lein-cljsbuild "1.1.0"]]
+  :cljsbuild {:builds {:app {:source-paths ["src-cljs"]
+                             :compiler {:output-to     "resources/public/js/app.js"
+                                        :output-dir    "resources/public/js/out"
+                                        :source-map    "resources/public/js/out.js.map"
+                                        :externs       ["react/externs/react.js"]
+                                        :main          "bitfondue.core"
+                                        :asset-path    "js/out"
+                                        :optimizations :none
+                                        :pretty-print  true}}}}
   :profiles {:dev {:dependencies [[clj-http-fake "1.0.1"]
                                   [midje "1.7.0" :exclusions [org.clojure/clojure]]
                                   [ring-mock "0.1.5"]]
@@ -35,7 +44,16 @@
                        :prep-tasks ["javac" "compile" "jar-copier"]
                        :jar-copier {:java-agents true
                                     :destination "resources/jars"}
-                       :main bitfondue.handler, :aot :all}}
+                       :main bitfondue.handler, :aot :all
+
+                       ;; compile the front-end
+                       :hooks ['leiningen.cljsbuild]
+                       :cljsbuild {:jar true
+                                   :builds {:app
+                                            {:compiler
+                                             {:optimizations :advanced
+                                              :pretty-print false}}}}}}
+
   :ring {:handler bitfondue.handler/app}
   :uberjar-name "bitfondue-standalone.jar"
   :main bitfondue.handler
