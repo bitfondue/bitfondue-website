@@ -5,6 +5,8 @@
             :url "http://opensource.org/licenses/MIT"}
   :dependencies [[org.clojure/clojure "1.7.0"]
                  [org.clojure/clojurescript "1.7.122"]
+
+                 ;; backend dependencies
                  [environ "1.0.0"]
                  [compojure "1.4.0"]
                  [ring/ring-core "1.3.2"]
@@ -17,6 +19,8 @@
                  [buddy/buddy-core "0.7.0"]
                  [buddy/buddy-auth "0.7.0"]
                  [hiccup "1.0.5"]]
+
+                 ;; front-end dependencies
                  [reagent "0.5.0"]]
   :plugins [[lein-environ "1.0.0"]
             [lein-ring "0.8.11"]
