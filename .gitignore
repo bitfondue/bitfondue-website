@@ -12,3 +12,4 @@ pom.xml.asc
 /do_not_commit.md
 /*.json
 /.env_*
+/resources/public/js
