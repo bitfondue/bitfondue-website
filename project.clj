@@ -18,7 +18,7 @@
                  [cheshire "5.5.0"]
                  [buddy/buddy-core "0.7.0"]
                  [buddy/buddy-auth "0.7.0"]
-                 [hiccup "1.0.5"]]
+                 [hiccup "1.0.5"]
 
                  ;; front-end dependencies
                  [reagent "0.5.0"]]
