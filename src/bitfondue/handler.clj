@@ -49,7 +49,8 @@
   (GET "/" [] "Success!")
   (GET "/dashboard" [] home)
   (POST "/login" [] login)
-  (route/resources "/"))
+  (route/resources "/")
+  (route/not-found "Not Found"))
 
 (def auth-backend (jwe-backend {:secret config/token-secret
                                 :options {:alg :a256kw :enc :a128gcm}}))
