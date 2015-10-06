@@ -6,6 +6,16 @@ Another approach at keeping things you've found on the web.
 
 ## Development
 
+### SSL Certificate
+
+```bash
+# create the certificate
+openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
+-keyout bitfondue.dev.key -out bitfondue.dev.crt
+
+# then add the crt file to your certificate manager (keychain access on OS X)
+```
+
 ### REPL
 
 1. Copy the `.env.dist` file to `.env_dev` and fill in your custom settings.
