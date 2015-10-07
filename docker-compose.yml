@@ -4,6 +4,7 @@ nginx:
     - 80:80
   volumes:
     - /var/run/docker.sock:/tmp/docker.sock:ro
+    - ./nginx/proxy.conf:/etc/nginx/proxy.conf:ro
 
 database:
   restart: always
