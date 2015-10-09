@@ -27,6 +27,7 @@
             [codox "0.8.13"]
             [lein-cljsbuild "1.1.0"]]
   :cljsbuild {:builds {:app {:source-paths ["src-cljs"]
+  :clean-targets ^{:protect false} ["resources/public/js/compiled" "target"]
                              :compiler {:output-to     "resources/public/js/app.js"
                                         :output-dir    "resources/public/js/out"
                                         :source-map    "resources/public/js/out.js.map"
