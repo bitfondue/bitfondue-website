@@ -26,6 +26,7 @@
             [lein-ring "0.8.11"]
             [codox "0.8.13"]
             [lein-cljsbuild "1.1.0"]]
+  :clean-targets ^{:protect false} ["resources/public/js" "target"]
   :cljsbuild {:builds {:app {:source-paths ["src-cljs"]
   :clean-targets ^{:protect false} ["resources/public/js/compiled" "target"]
                              :compiler {:output-to     "resources/public/js/app.js"
