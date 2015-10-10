@@ -25,8 +25,16 @@
   :plugins [[lein-environ "1.0.0"]
             [lein-ring "0.8.11"]
             [codox "0.8.13"]
-            [lein-cljsbuild "1.1.0"]]
+            [lein-cljsbuild "1.1.0"]
+            [lein-figwheel "0.4.0"]]
   :clean-targets ^{:protect false} ["resources/public/js" "target"]
+  :figwheel {
+             ;; :http-server-root "public" ;; default and assumes "resources"
+             ;; :server-port 3449 ;; default
+             ;; :server-ip "127.0.0.1"
+
+             :css-dirs ["resources/public/css"] ;; watch and update CSS
+             }
   :cljsbuild {:builds {:app {:source-paths ["src-cljs"]
   :clean-targets ^{:protect false} ["resources/public/js/compiled" "target"]
                              :compiler {:output-to     "resources/public/js/app.js"
