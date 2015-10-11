@@ -35,15 +35,15 @@
 
              :css-dirs ["resources/public/css"] ;; watch and update CSS
              }
-  :cljsbuild {:builds {:app {:source-paths ["src-cljs"]
-                             :compiler {:output-to     "resources/public/js/app.js"
-                                        :output-dir    "resources/public/js/out"
-                                        :source-map    "resources/public/js/out.js.map"
-                                        :externs       ["react/externs/react.js"]
-                                        :main          "bitfondue.core"
-                                        :asset-path    "js/out"
-                                        :optimizations :none
-                                        :pretty-print  true}}}}
+  :cljsbuild {:builds {:prod {:source-paths ["src-cljs"]
+                              :compiler {:output-to     "resources/public/js/app.js"
+                                         :output-dir    "resources/public/js/out"
+                                         :source-map    "resources/public/js/out.js.map"
+                                         :externs       ["react/externs/react.js"]
+                                         :main          "bitfondue.core"
+                                         :asset-path    "js/out"
+                                         :optimizations :none
+                                         :pretty-print  true}}}}
   :profiles {:dev {:dependencies [[clj-http-fake "1.0.1"]
                                   [midje "1.7.0" :exclusions [org.clojure/clojure]]
                                   [ring-mock "0.1.5"]]
@@ -58,7 +58,7 @@
                        ;; compile the front-end
                        :hooks [leiningen.cljsbuild]
                        :cljsbuild {:jar true
-                                   :builds {:app
+                                   :builds {:prod
                                             {:compiler
                                              {:optimizations :advanced
                                               :pretty-print false}}}}}}
