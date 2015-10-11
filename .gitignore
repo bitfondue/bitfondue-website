@@ -13,3 +13,4 @@ pom.xml.asc
 /*.json
 /.env_*
 /resources/public/js
+*.log
