@@ -35,7 +35,16 @@
 
              :css-dirs ["resources/public/css"] ;; watch and update CSS
              }
-  :cljsbuild {:builds {:prod {:source-paths ["src-cljs"]
+  :cljsbuild {:builds {:dev {:source-paths ["src-cljs"]
+
+                             :figwheel { :on-jsload "bitfondue.core/on-js-reload" }
+
+                             :compiler {:main bitfondue.core
+                                        :asset-path "js/out"
+                                        :output-to "resources/public/js/app.js"
+                                        :output-dir "resources/public/js/out"
+                                        :source-map-timestamp true }}
+                       :prod {:source-paths ["src-cljs"]
                               :compiler {:output-to     "resources/public/js/app.js"
                                          :output-dir    "resources/public/js/out"
                                          :source-map    "resources/public/js/out.js.map"
