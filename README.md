@@ -16,6 +16,10 @@ openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
 # then add the crt file to your certificate manager (keychain access on OS X)
 ```
 
+### Figwheel (for the front-end)
+
+1. `lein figwheel` will start a server, serving the files in `resources/public` and watching & recompiling any ClojureScript files.
+
 ### REPL
 
 1. Copy the `.env.dist` file to `.env_dev` and fill in your custom settings.
