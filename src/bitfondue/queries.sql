@@ -10,3 +10,10 @@ LIMIT 1
 INSERT INTO users
 (username,email,password)
 VALUES (:username,:email,:password);
+
+
+-- name: insert-chunk<!
+-- insert a new chunk
+INSERT INTO chunks
+(title)
+VALUES (:title);
