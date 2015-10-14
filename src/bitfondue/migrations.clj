@@ -2,6 +2,8 @@
   (:require (ragtime [jdbc :as jdbc]
                      [repl :as repl])
             [bitfondue.config :as config]
+            (bitfondue.models [chunks :as chunks]
+                              [users :as users])
             [cheshire.core :refer :all]))
 
 ;; Database Migrations
@@ -31,3 +33,12 @@
     (doall (->> rdr
                 line-seq
                 (map #(parse-string % true))))))
+
+(defn import-old-data
+  "Parses the old database dump and imports it"
+  []
+  (doseq [item (parse-json-line-items "existing_data.json")]
+    (->> item
+         :tab_info
+         chunks/insert-chunk!)))
+
