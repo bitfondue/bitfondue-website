@@ -24,7 +24,7 @@
 
 
 ;; Migrate the existing data into the new database
-(defn parse-json-line-items
+(defn ^:private parse-json-line-items
   "Parses the current .json line item file into a collection of maps"
   [file-name]
   (with-open [rdr (clojure.java.io/reader file-name)]
