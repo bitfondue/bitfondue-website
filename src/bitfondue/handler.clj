@@ -14,12 +14,17 @@
             [buddy.auth.backends.token :refer [jwe-backend]]
             [buddy.auth.middleware :refer [wrap-authentication wrap-authorization]]
             [bitfondue.config :as config]
-            (bitfondue.models [users :as users]))
+            (bitfondue.models [users :as users]
+                              [chunks :as chunks]))
   (:use [ring.adapter.jetty :as ring])
   (:gen-class))
 
 (defn ok [d] {:status 200 :body d})
 (defn bad-request [d] {:status 400 :body d})
+
+(defn chunks
+  [request]
+  (ok {:chunks (chunks/get-chunks)}))
 
 (defn home
   [request]
@@ -48,6 +53,7 @@
 (defroutes app-routes
   (GET "/" [] "Success!")
   (GET "/dashboard" [] home)
+  (GET "/chunks" [] chunks)
   (POST "/login" [] login)
   (route/resources "/")
   (route/not-found "Not Found"))
