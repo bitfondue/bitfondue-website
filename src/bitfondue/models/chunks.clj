@@ -8,3 +8,7 @@
   (database/insert-chunk<! config/database
                            (:title chunk)))
 
+(defn get-chunks
+  "Retrieve chunks"
+  []
+  (database/get-chunks config/database))
