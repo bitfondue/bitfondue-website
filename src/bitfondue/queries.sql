@@ -11,6 +11,12 @@ INSERT INTO users
 (username,email,password)
 VALUES (:username,:email,:password);
 
+-- name: get-chunks
+-- retrieve chunks
+SELECT id,title,created_on
+FROM chunks
+ORDER BY id
+LIMIT 30;
 
 -- name: insert-chunk<!
 -- insert a new chunk
