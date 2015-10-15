@@ -1,6 +1,7 @@
 (ns ^:figwheel-always bitfondue.core
     (:require
-     [reagent.core :as reagent :refer [atom]]))
+     [reagent.core :as reagent :refer [atom]]
+     [ajax.core :refer [GET]]))
 
 (enable-console-print!)
 
@@ -21,4 +22,5 @@
   ;; optionally touch your app-state to force rerendering depending on
   ;; your application
   ;; (swap! app-state update-in [:__figwheel_counter] inc)
+  (reset! app-state {:text (pr-str (GET "/chunks"))})
 )
