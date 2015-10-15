@@ -21,7 +21,9 @@
                  [hiccup "1.0.5"]
 
                  ;; front-end dependencies
-                 [reagent "0.5.0"]]
+                 [reagent "0.5.0"]
+                 [cljs-ajax "0.5.0"]]
+
   :plugins [[lein-environ "1.0.0"]
             [lein-ring "0.8.11"]
             [codox "0.8.13"]
