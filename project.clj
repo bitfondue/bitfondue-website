@@ -36,6 +36,8 @@
              ;; :server-ip "127.0.0.1"
 
              :css-dirs ["resources/public/css"] ;; watch and update CSS
+             
+             :ring-handler bitfondue.handler/app
              }
   :cljsbuild {:builds {:dev {:source-paths ["src-cljs"]
 
