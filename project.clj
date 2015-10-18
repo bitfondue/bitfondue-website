@@ -36,9 +36,6 @@
              ;; :server-ip "127.0.0.1"
 
              :css-dirs ["resources/public/css"] ;; watch and update CSS
-             
-             :ring-handler bitfondue.handler/app
-             }
   :cljsbuild {:builds {:dev {:source-paths ["src-cljs"]
 
                              :figwheel { :on-jsload "bitfondue.core/on-js-reload" }
@@ -49,6 +46,7 @@
                                         :output-dir "resources/public/js/out"
                                         :source-map-timestamp true }}
                        :prod {:source-paths ["src-cljs"]
+             :ring-handler bitfondue.handler/app}
                               :compiler {:output-to     "resources/public/js/app.js"
                                          :output-dir    "resources/public/js/out"
                                          :source-map    "resources/public/js/out.js.map"
