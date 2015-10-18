@@ -36,17 +36,10 @@
              ;; :server-ip "127.0.0.1"
 
              :css-dirs ["resources/public/css"] ;; watch and update CSS
-  :cljsbuild {:builds {:dev {:source-paths ["src-cljs"]
 
-                             :figwheel { :on-jsload "bitfondue.core/on-js-reload" }
-
-                             :compiler {:main bitfondue.core
-                                        :asset-path "js/out"
-                                        :output-to "resources/public/js/app.js"
-                                        :output-dir "resources/public/js/out"
-                                        :source-map-timestamp true }}
-                       :prod {:source-paths ["src-cljs"]
              :ring-handler bitfondue.handler/app}
+  :cljsbuild {:builds {:app {:source-paths ["src-cljs"]
+                              :figwheel {:on-jsload "bitfondue.core/on-js-reload"}
                               :compiler {:output-to     "resources/public/js/app.js"
                                          :output-dir    "resources/public/js/out"
                                          :source-map    "resources/public/js/out.js.map"
@@ -69,8 +62,9 @@
                        ;; compile the front-end
                        :hooks [leiningen.cljsbuild]
                        :cljsbuild {:jar true
-                                   :builds {:prod
-                                            {:compiler
+                                   :builds {:app
+                                            {:figwheel nil
+                                             :compiler
                                              {:optimizations :advanced
                                               :pretty-print false}}}}}}
 
