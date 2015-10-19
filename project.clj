@@ -19,6 +19,7 @@
                  [buddy/buddy-core "0.7.0"]
                  [buddy/buddy-auth "0.7.0"]
                  [hiccup "1.0.5"]
+                 [bouncer "0.3.3"]
 
                  ;; front-end dependencies
                  [reagent "0.5.0"]
