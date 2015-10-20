@@ -6,6 +6,7 @@
             [ring.util.response :refer [response redirect content-type status]]
             (ring.middleware [session :refer [wrap-session]]
                              [params :refer [wrap-params]]
+                             [multipart-params :refer [wrap-multipart-params]]
                              [json :refer [wrap-json-response wrap-json-body]])
             [hiccup.core :as h]
             [clj-time.core :as time]
@@ -65,7 +66,9 @@
              (wrap-authorization auth-backend)
              (wrap-authentication auth-backend)
              (wrap-json-response {:pretty false})
-             (wrap-json-body {:keywords? true :bigdecimals? true})))
+             (wrap-json-body {:keywords? true :bigdecimals? true})
+             (wrap-params)
+             (wrap-multipart-params)))
 
 (defn -main [port]
   (run-jetty app {:port (read-string port) :join? false}))
