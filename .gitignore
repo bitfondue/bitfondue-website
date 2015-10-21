@@ -14,3 +14,4 @@ pom.xml.asc
 /.env_*
 /resources/public/js
 *.log
+*.edn
