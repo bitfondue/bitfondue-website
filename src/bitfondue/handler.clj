@@ -14,6 +14,8 @@
             [buddy.auth :refer [authenticated? throw-unauthorized]]
             [buddy.auth.backends.token :refer [jwe-backend]]
             [buddy.auth.middleware :refer [wrap-authentication wrap-authorization]]
+            (bouncer [core :as b]
+                     [validators :as v])
             [bitfondue.config :as config]
             (bitfondue.models [users :as users]
                               [chunks :as chunks]))
