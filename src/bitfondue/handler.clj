@@ -7,7 +7,8 @@
             (ring.middleware [session :refer [wrap-session]]
                              [params :refer [wrap-params]]
                              [multipart-params :refer [wrap-multipart-params]]
-                             [json :refer [wrap-json-response wrap-json-body]])
+                             [keyword-params :refer [wrap-keyword-params]]
+                             [json :refer [wrap-json-response wrap-json-body wrap-json-params]])
             [hiccup.core :as h]
             [clj-time.core :as time]
             [buddy.sign.jwe :as jwe]
@@ -69,8 +70,11 @@
              (wrap-authentication auth-backend)
              (wrap-json-response {:pretty false})
              (wrap-json-body {:keywords? true :bigdecimals? true})
+             (wrap-multipart-params)
              (wrap-params)
-             (wrap-multipart-params)))
+             (wrap-keyword-params)
+             (wrap-json-params)
+             ))
 
 (defn -main [port]
   (run-jetty app {:port (read-string port) :join? false}))
