@@ -62,6 +62,7 @@
   (spit "validated_request.edn" (b/validate (:params request)
                                             :username v/required
                                             :email v/required))
+)
 
 (defroutes app-routes
   (GET "/" [] "Success!")
