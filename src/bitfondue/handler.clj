@@ -17,6 +17,7 @@
             [buddy.auth.middleware :refer [wrap-authentication wrap-authorization]]
             (bouncer [core :as b]
                      [validators :as v])
+            [taoensso.timbre :as log]
             [bitfondue.config :as config]
             (bitfondue.models [users :as users]
                               [chunks :as chunks]))
@@ -54,11 +55,20 @@
         (ok {:token token}))
       (bad-request {:message "wrong auth data"}))))
 
+(defn upload
+  [request]
+  ;; make sure the body.img, body.html and body.tab_info attributes are present
+  (log/debug "received a request")
+  (spit "validated_request.edn" (b/validate (:params request)
+                                            :username v/required
+                                            :email v/required))
+
 (defroutes app-routes
   (GET "/" [] "Success!")
   (GET "/dashboard" [] home)
   (GET "/chunks" [] chunks)
   (POST "/login" [] login)
+  (POST "/upload" [] upload)
   (route/resources "/")
   (route/not-found "Not Found"))
 
