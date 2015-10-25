@@ -61,8 +61,11 @@
   (log/debug "received a request")
   (spit "validated_request.edn" (b/validate (:params request)
                                             :username v/required
-                                            :email v/required))
 )
+                                            :email    v/required
+                                            :img      v/required
+                                            :tab_info v/required
+                                            :html     v/required))
 
 (defroutes app-routes
   (GET "/" [] "Success!")
