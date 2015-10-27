@@ -8,6 +8,10 @@
 (defonce app-state (atom {:text "Hello world!"}))
 (defonce chunks-state (atom '()))
 
+;; ---
+;; View Template
+;; ---
+
 (defn hello-world []
   [:h1 (:text @app-state)])
 
@@ -24,8 +28,9 @@
    [hello-world]
    [chunks]])
 
-(reagent/render-component [layout]
-                          (. js/document (getElementById "app")))
+;; ---
+;; Load data from the API
+;; ---
 
 (defn chunks-success-handler
   [response]
@@ -41,6 +46,13 @@
                   :keywords? true
                   :handler chunks-success-handler
                   :error-handler chunks-error-handler}))
+
+;; render the dom
+(reagent/render-component [layout]
+                          (. js/document (getElementById "app")))
+  
+;; load the data from the API
+(fetch-chunks)
 
 (defn on-js-reload []
   ;; optionally touch your app-state to force rerendering depending on
