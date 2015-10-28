@@ -24,7 +24,8 @@
 
                  ;; front-end dependencies
                  [reagent "0.5.0"]
-                 [cljs-ajax "0.5.0"]]
+                 [cljs-ajax "0.5.0"]
+                 [secretary "1.2.0"]]
 
   :plugins [[lein-environ "1.0.0"]
             [lein-ring "0.8.11"]
