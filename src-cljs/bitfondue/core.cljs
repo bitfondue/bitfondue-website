@@ -1,7 +1,7 @@
 (ns ^:figwheel-always bitfondue.core
-    (:require
-     [reagent.core :as reagent :refer [atom]]
-     [ajax.core :refer [GET]]))
+    (:require [reagent.core :as reagent :refer [atom]]
+              [ajax.core :refer [GET]]
+              [secretary.core :as secretary :refer-macros [defroute]]))
 
 ;; define your app data so that it doesn't get over-written on reload
 
