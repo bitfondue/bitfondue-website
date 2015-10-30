@@ -5,15 +5,11 @@
 
 ;; define your app data so that it doesn't get over-written on reload
 
-(defonce app-state (atom {:text "Hello world!"}))
 (defonce chunks-state (atom '()))
 
 ;; ---
 ;; View Template
 ;; ---
-
-(defn hello-world []
-  [:h1 (:text @app-state)])
 
 (defn chunks
   []
@@ -25,7 +21,6 @@
 (defn layout
   []
   [:div
-   [hello-world]
    [chunks]])
 
 ;; ---
