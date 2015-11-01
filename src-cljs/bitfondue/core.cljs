@@ -27,8 +27,8 @@
 
 (defn layout
   []
-  [header]
   [:div
+   [header]
    [chunks]])
 
 ;; ---
