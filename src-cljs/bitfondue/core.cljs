@@ -18,8 +18,16 @@
                    (sort-by :created_on))]
      [:li (:title item)])])
 
+(defn header
+  []
+  [:nav.navbar.navbar-default
+   [:div.container-fluid
+    [:div.navbar-header
+     [:a.navbar-brand "bitfondue"]]]])
+
 (defn layout
   []
+  [header]
   [:div
    [chunks]])
 
