@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/bitfondue/bitfondue-website/issues"
   },
-  "homepage": "https://github.com/bitfondue/bitfondue-website#readme"
+  "homepage": "https://github.com/bitfondue/bitfondue-website#readme",
+  "dependencies": {
+    "bower": "^1.6.5"
+  }
 }
