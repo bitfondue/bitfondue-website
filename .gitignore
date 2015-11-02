@@ -3,6 +3,7 @@
 /checkouts
 /doc
 /node_modules
+/bower_components
 pom.xml
 pom.xml.asc
 *.jar
