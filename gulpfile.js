@@ -3,8 +3,7 @@ var gulp = require('gulp'),
 
 gulp.task('styles', function () {
   gulp.src([
-    'bower_components/bootstrap/dist/css/bootstrap.min.css',
-    'bower_components/bootstrap/dist/css/bootstrap-theme.min.css'
+    'bower_components/bootstrap/dist/css/bootstrap.min.css'
   ])
   .pipe(concat('deps.css'))
   .pipe(gulp.dest('resources/public/css'));
