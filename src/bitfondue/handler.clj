@@ -68,7 +68,7 @@
                                             :html     v/required))
 
 (defroutes app-routes
-  (GET "/" [] "Success!")
+  (GET "/" [] (slurp "resources/public/index.html"))
   (GET "/dashboard" [] home)
   (GET "/chunks" [] chunks)
   (POST "/login" [] login)
