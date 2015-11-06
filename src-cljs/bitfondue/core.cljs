@@ -20,10 +20,20 @@
 
 (defn header
   []
-  [:nav.navbar.navbar-default
-   [:div.container-fluid
-    [:div.navbar-header
-     [:a.navbar-brand "bitfondue"]]]])
+  [:nav.navbar.navbar-light.bg-faded
+   [:a.navbar-brand {:href "/"} "bitfondue"]
+   [:ul.nav.navbar-nav
+    [:li.nav-item
+     [:a.nav-link {:href "#"} "Features"]]
+    [:li.nav-item
+     [:a.nav-link {:href "#"} "Pricing"]]
+    [:li.nav-item
+     [:a.nav-link {:href "#"} "About"]]]
+   [:ul.nav.navbar-nav.pull-right
+    [:li.nav-item
+     [:a.nav-link {:href "#"} "Login"]]
+    [:li.nav-item
+     [:a.nav-link {:href "#"} "Register"]]]])
 
 (defn layout
   []
