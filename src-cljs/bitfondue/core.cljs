@@ -11,12 +11,26 @@
 ;; View Template
 ;; ---
 
+(defn chunk-card
+  [chunk]
+  [:div.col-sm-4
+   [:div.card.card-block
+    [:h4.card-title (let [character-max-length 20]
+                      (if (> character-max-length (count (:title chunk)))
+                        (:title chunk)
+                        (apply str (concat (take character-max-length (:title chunk))
+                                           '("...")))))]
+    [:p.card-text "An excerpt of the content"]]])
+
 (defn chunks
   []
-  [:ul
-   (for [item (->> @chunks-state
-                   (sort-by :created_on))]
-     [:li (:title item)])])
+  [:div.container
+   (for [chunk-row (->> @chunks-state
+                        (sort-by :created_on)
+                        (partition-all 3))]
+     [:div.row
+      (for [item chunk-row]
+        [chunk-card item])])])
 
 (defn header
   []
