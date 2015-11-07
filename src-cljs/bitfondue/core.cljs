@@ -116,6 +116,11 @@
 (defroute "/about" [] (page about))
 (defroute "*" [] (page not-found))
 
+;; Quick and dirty history configuration.
+(let [h (History.)]
+  (goog.events/listen h EventType/NAVIGATE #(secretary/dispatch! (.-token %)))
+  (doto h (.setEnabled true)))
+
 ;; load the data from the API
 (fetch-chunks)
 
