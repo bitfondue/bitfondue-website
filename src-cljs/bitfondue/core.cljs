@@ -54,11 +54,29 @@
       [:a.nav-link {:href "#"} "Register"]]]]])
 
 (defn layout
-  []
+  [content]
   [:div
    [header]
    [:br]
-   [chunks]])
+   [:div.container content]])
+
+(defn home-anonymous []
+  [layout [:h1 "Home"]])
+
+(defn home-authenticated []
+  [layout [chunks]])
+
+(defn features []
+  [layout [:h1 "Features"]])
+
+(defn pricing []
+  [layout [:h1 "Pricing"]])
+
+(defn about []
+  [layout [:h1 "About"]])
+
+(defn not-found []
+  [layout [:h1 "404 - Page not found"]])
 
 ;; ---
 ;; Load data from the API
@@ -80,9 +98,24 @@
                   :error-handler chunks-error-handler}))
 
 ;; render the dom
-(reagent/render-component [layout]
-                          (. js/document (getElementById "app")))
-  
+(def application
+  (js/document.getElementById "app"))
+
+(defn page [page-component]
+  (reagent/render-component
+   [page-component]
+   application))
+
+;; set secretary to use # for the routing, eg. /#dashboard
+(secretary/set-config! :prefix "#")
+
+(defroute "/" [] (page home-anonymous))
+(defroute "/dashboard" [] (page home-authenticated))
+(defroute "/features" [] (page features))
+(defroute "/pricing" [] (page pricing))
+(defroute "/about" [] (page about))
+(defroute "*" [] (page not-found))
+
 ;; load the data from the API
 (fetch-chunks)
 
