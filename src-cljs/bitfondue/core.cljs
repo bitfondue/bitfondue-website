@@ -1,7 +1,10 @@
 (ns ^:figwheel-always bitfondue.core
     (:require [reagent.core :as reagent :refer [atom]]
               [ajax.core :refer [GET]]
-              [secretary.core :as secretary :refer-macros [defroute]]))
+              [secretary.core :as secretary :refer-macros [defroute]]
+              [goog.events :as events]
+              [goog.history.EventType :as EventType])
+    (:import goog.History))
 
 ;; define your app data so that it doesn't get over-written on reload
 
