@@ -39,14 +39,14 @@
   []
   [:nav.navbar.navbar-light.bg-faded
    [:div.container
-    [:a.navbar-brand {:href "/"} "bitfondue"]
+    [:a.navbar-brand {:href "#"} "bitfondue"]
     [:ul.nav.navbar-nav
      [:li.nav-item
-      [:a.nav-link {:href "#"} "Features"]]
+      [:a.nav-link {:href "#features"} "Features"]]
      [:li.nav-item
-      [:a.nav-link {:href "#"} "Pricing"]]
+      [:a.nav-link {:href "#pricing"} "Pricing"]]
      [:li.nav-item
-      [:a.nav-link {:href "#"} "About"]]]
+      [:a.nav-link {:href "#about"} "About"]]]
     [:ul.nav.navbar-nav.pull-right
      [:li.nav-item
       [:a.nav-link {:href "#"} "Login"]]
