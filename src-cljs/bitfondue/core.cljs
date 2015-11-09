@@ -27,7 +27,7 @@
 
 (defn chunks
   []
-  [:div.container
+  [:div.chunks
    (for [chunk-row (->> @chunks-state
                         (sort-by :created_on)
                         (partition-all 3))]
