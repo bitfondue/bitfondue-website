@@ -49,9 +49,9 @@
       [:a.nav-link {:href "#about"} "About"]]]
     [:ul.nav.navbar-nav.pull-right
      [:li.nav-item
-      [:a.nav-link {:href "#"} "Login"]]
+      [:a.nav-link {:href "#login"} "Login"]]
      [:li.nav-item
-      [:a.nav-link {:href "#"} "Register"]]]]])
+      [:a.nav-link {:href "#register"} "Register"]]]]])
 
 (defn layout
   [content]
@@ -74,6 +74,12 @@
 
 (defn about []
   [layout [:h1 "About"]])
+
+(defn login []
+  [layout [:h1 "Login"]])
+
+(defn register []
+  [layout [:h1 "Register"]])
 
 (defn not-found []
   [layout [:h1 "404 - Page not found"]])
@@ -114,6 +120,8 @@
 (defroute "/features" [] (page features))
 (defroute "/pricing" [] (page pricing))
 (defroute "/about" [] (page about))
+(defroute "/login" [] (page login))
+(defroute "/register" [] (page register))
 (defroute "*" [] (page not-found))
 
 ;; Quick and dirty history configuration.
