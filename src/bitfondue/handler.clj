@@ -21,7 +21,10 @@
             [bitfondue.config :as config]
             (bitfondue.models [users :as users]
                               [chunks :as chunks]))
-  (:use [ring.adapter.jetty :as ring])
+  (:use [ring.adapter.jetty :as ring]
+        [clojure.pprint]
+        [amazonica.aws.s3]
+        [amazonica.aws.s3transfer :exclude [upload]])
   (:gen-class))
 
 (defn ok [d] {:status 200 :body d})
