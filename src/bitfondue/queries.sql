@@ -13,7 +13,7 @@ VALUES (:username,:email,:password);
 
 -- name: get-chunks
 -- retrieve chunks
-SELECT id,title,created_on
+SELECT id,title,created_on,url,description_summary
 FROM chunks
 ORDER BY id
 LIMIT 30;
