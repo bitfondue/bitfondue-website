@@ -6,7 +6,9 @@
   "Insert a chunk into the database"
   [chunk]
   (database/insert-chunk<! config/database
-                           (:title chunk)))
+                           (:title chunk)
+                           (:url chunk)
+                           (:description_summary chunk)))
 
 (defn get-chunks
   "Retrieve chunks"

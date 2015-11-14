@@ -21,5 +21,5 @@ LIMIT 30;
 -- name: insert-chunk<!
 -- insert a new chunk
 INSERT INTO chunks
-(title)
-VALUES (:title);
+(title, url, description_summary)
+VALUES (:title, :url, :description_summary);
