@@ -23,7 +23,7 @@
                         (:title chunk)
                         (apply str (concat (take character-max-length (:title chunk))
                                            '("...")))))]
-    [:p.card-text "An excerpt of the content"]]])
+    [:p.card-text (:description_summary chunk)]]])
 
 (defn chunks
   []
