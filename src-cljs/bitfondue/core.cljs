@@ -75,6 +75,13 @@
 (defn about []
   [layout [:h1 "About"]])
 
+(def login-form
+  [:div.col-md-6
+   [:form
+    [:fieldset.form-group
+     [:label {:for "usernameInput"} "Username"]
+     [:input.form-control {:type "email" :id "usernameInput" :placeholder "Your username please."}]]]])
+
 (defn login []
   [layout [:h1 "Login"]])
 
