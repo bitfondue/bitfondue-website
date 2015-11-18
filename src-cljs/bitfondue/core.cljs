@@ -83,7 +83,9 @@
      [:input.form-control {:type "email" :id "usernameInput" :placeholder "Your username please."}]]]])
 
 (defn login []
-  [layout [:h1 "Login"]])
+  [layout [:div.row
+           [:h1 "Login"]
+           login-form]])
 
 (defn register []
   [layout [:h1 "Register"]])
