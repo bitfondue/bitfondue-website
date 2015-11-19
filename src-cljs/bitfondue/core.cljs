@@ -77,15 +77,19 @@
 
 (def login-form
   [:div.col-md-6
+   [:h1 "Login"]
+   [:br]
    [:form
     [:fieldset.form-group
      [:label {:for "usernameInput"} "Username"]
-     [:input.form-control {:type "email" :id "usernameInput" :placeholder "Your username please."}]]]])
+     [:input.form-control {:type "email" :id "usernameInput" :placeholder "Your username please."}]]
+    [:fieldset.form-group
+     [:label {:for "passwordInput"} "Password"]
+     [:input.form-control {:type "password" :id "passwordInput" :placeholder "Password"}]]
+    [:button.btn.btn-primary {:type "submit"} "Login"]]])
 
 (defn login []
-  [layout [:div.row
-           [:h1 "Login"]
-           login-form]])
+  [layout [:div.row login-form]])
 
 (defn register []
   [layout [:h1 "Register"]])
