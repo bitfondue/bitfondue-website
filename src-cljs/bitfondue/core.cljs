@@ -88,11 +88,27 @@
      [:input.form-control {:type "password" :id "passwordInput" :placeholder "Password"}]]
     [:button.btn.btn-primary {:type "submit"} "Login"]]])
 
+(def register-form
+  [:div.col-md-offset-3.col-md-6
+   [:h1 "Register"]
+   [:br]
+   [:form
+    [:fieldset.form-group
+     [:label {:for "usernameInput"} "Username"]
+     [:input.form-control {:type "email" :id "usernameInput" :placeholder "Your username please."}]]
+    [:fieldset.form-group
+     [:label {:for "passwordInput"} "Password"]
+     [:input.form-control {:type "password" :id "passwordInput" :placeholder "Password"}]]
+    [:fieldset.form-group
+     [:label {:for "passwordInputRepeat"} "Password"]
+     [:input.form-control {:type "password" :id "passwordInputRepeat" :placeholder "Password again"}]]
+    [:button.btn.btn-primary {:type "submit"} "Login"]]])
+
 (defn login []
   [layout [:div.row login-form]])
 
 (defn register []
-  [layout [:h1 "Register"]])
+  [layout [:div.row register-form]])
 
 (defn not-found []
   [layout [:h1 "404 - Page not found"]])
