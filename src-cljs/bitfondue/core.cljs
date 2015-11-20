@@ -76,7 +76,7 @@
   [layout [:h1 "About"]])
 
 (def login-form
-  [:div.col-md-6
+  [:div.col-md-offset-3.col-md-6
    [:h1 "Login"]
    [:br]
    [:form
