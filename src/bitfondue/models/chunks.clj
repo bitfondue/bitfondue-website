@@ -8,7 +8,7 @@
   (database/insert-chunk<! config/database
                            (:title chunk)
                            (:url chunk)
-                           (:description_summary chunk)))
+                           (:description_full chunk)))
 
 (defn get-chunks
   "Retrieve chunks"
