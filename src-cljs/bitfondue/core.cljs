@@ -22,8 +22,7 @@
                       (if (> character-max-length (count (:title chunk)))
                         (:title chunk)
                         (apply str (concat (take character-max-length (:title chunk))
-                                           '("...")))))]
-    [:p.card-text (:description_summary chunk)]]])
+                                           '("...")))))]]])
 
 (defn chunks
   []
