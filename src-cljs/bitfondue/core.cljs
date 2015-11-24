@@ -52,6 +52,16 @@
      [:li.nav-item
       [:a.nav-link {:href "#register"} "Register"]]]]])
 
+(defn footer
+  []
+  [:div.container
+   [:div.row
+    [:div.col-md-4
+     [:ul
+      [:li [:a {:href "http://blog.bitfondue.com"} "Blog"]]
+      [:li [:a {:href "https://github.com/bitfondue"} "GitHub"]]]]]])
+
+
 (defn layout
   [content]
   [:div
