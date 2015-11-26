@@ -67,7 +67,9 @@
   [:div
    [header]
    [:br]
-   [:div.container content]])
+   [:div.container content]
+   [:br]
+   [footer]])
 
 (defn home-anonymous []
   [layout [:h1 "Home"]])
