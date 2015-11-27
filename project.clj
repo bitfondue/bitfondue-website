@@ -13,7 +13,7 @@
                  [ring/ring-jetty-adapter "1.3.2"]
                  [ring/ring-json "0.3.1" :exclusions [ring/ring-core]]
                  [ragtime "0.5.2"]
-                 [yesql "0.4.2"]
+                 [yesql "0.5.1"]
                  [org.postgresql/postgresql "9.4-1201-jdbc41"]
                  [cheshire "5.5.0"]
                  [buddy/buddy-core "0.7.0"]
