@@ -40,7 +40,8 @@
   (doseq [item (parse-json-line-items "existing_data.json")]
     (let [c {:title (:title (:tab_info item))
              :url   (:url (:tab_info item))
-             :description_full (:text (:diffbot item))}]
+             :description_full (:text (:diffbot item))
+             :uid   (:uid item)}]
       (chunks/insert-chunk! c))))
 
 
