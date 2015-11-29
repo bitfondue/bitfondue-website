@@ -5,13 +5,9 @@
 (defn insert-chunk!
   "Insert a chunk into the database"
   [chunk]
-  (database/insert-chunk<! config/database
-                           (:title chunk)
-                           (:url chunk)
-                           (:description_full chunk)
-                           (:uid chunk)))
+  (database/insert-chunk<! chunk))
 
 (defn get-chunks
   "Retrieve chunks"
   []
-  (database/get-chunks config/database))
+  (database/get-chunks))
