@@ -1,7 +1,8 @@
 (ns bitfondue.database
   (:require [cheshire.core :as cheshire]
             [yesql.core :refer [defqueries]]
-            [clojure.java.jdbc :as jdbc])
+            [clojure.java.jdbc :as jdbc]
+            [bitfondue.config :as config])
   (:import [org.postgresql.util PGobject]))
 
 (extend-type org.postgresql.util.PGobject
@@ -13,5 +14,6 @@
         (cheshire/parse-string (.getValue val) true)
         val))))
 
-(defqueries "bitfondue/queries.sql")
+(defqueries "bitfondue/queries.sql"
+  {:connection config/database})
 
