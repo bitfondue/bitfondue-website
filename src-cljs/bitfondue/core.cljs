@@ -17,7 +17,10 @@
 (defn chunk-card
   [chunk]
   [:div.col-sm-4
-   [:div.card.card-block
+   [:img.card-img-top {:src (str "/images/"
+                                 (:uid chunk)
+                                 ".png")}]
+   [:div.card.card-block.chunk-content
     [:h4.card-title (let [character-max-length 20]
                       (if (> character-max-length (count (:title chunk)))
                         (:title chunk)
