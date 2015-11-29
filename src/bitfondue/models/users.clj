@@ -10,8 +10,12 @@
                           (:email user)
                           (:password user)))
 
+(defn insert-user!
+  "Insert a user into the database"
+  [user]
+  (database/insert-user<! user))
+
 (defn get-user
   "Get a user by its username"
   [username]
-  (database/get-user config/database
-                     username))
+  (database/get-user {:username username}))
