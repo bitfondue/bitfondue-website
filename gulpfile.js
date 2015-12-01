@@ -16,6 +16,6 @@ gulp.task('styles', function () {
 
 gulp.task('default', ['styles']);
 
-gulp.task('watch', functio () {
+gulp.task('watch', function () {
   gulp.watch(paths.css, ['styles']);
 });
