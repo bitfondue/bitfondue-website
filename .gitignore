@@ -4,6 +4,7 @@
 /doc
 /node_modules
 /bower_components
+/resources/public/images
 pom.xml
 pom.xml.asc
 *.jar
