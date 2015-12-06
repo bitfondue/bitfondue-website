@@ -8,6 +8,34 @@
             [goog.events :as events])
   (:import [goog.history Html5History EventType]))
 
+;; Make the Html 5 History API work
+(defn get-token []
+  (str js/window.location.pathname js/window.location.search))
+
+(defn make-history []
+  (doto (Html5History.)
+    (.setPathPrefix (str js/window.location.protocol
+                         "//"
+                         js/window.location.host))
+    (.setUseFragment false)))
+
+(defn handle-url-change [e]
+  ;; log the event object to console for inspection
+  (js/console.log e)
+  ;; and let's see the token
+  (js/console.log (str "Navigating: " (get-token)))
+  ;; we are checking if this event is due to user action,
+  ;; such as click a link, a back button, etc.
+  ;; as opposed to programmatically setting the URL with the API
+  (when-not (.-isNavigation e)
+    ;; in this case, we're setting it
+    (js/console.log "Token set programmatically")
+    ;; let's scroll to the top to simulate a navigation
+    (js/window.scrollTo 0 0))
+  ;; dispatch on the token
+  (secretary/dispatch! (get-token)))
+
+(defonce history (make-history))
 (defonce chunks-state (atom '()))
 
 ;; ---
@@ -37,23 +65,31 @@
       (for [item chunk-row]
         [chunk-card item])])])
 
+(defn nav-helper
+  "Creating the map so that links will be routed without server-refresh"
+  [token]
+  {:href token
+   :on-click #(do
+                (.preventDefault %)
+                (.setToken history token))})
+
 (defn header
   []
   [:nav.navbar.navbar-light.bg-faded
    [:div.container
-    [:a.navbar-brand {:href "#"} "bitfondue"]
+    [:a.navbar-brand (nav-helper "/") "bitfondue"]
     [:ul.nav.navbar-nav
      [:li.nav-item
-      [:a.nav-link {:href "#features"} "Features"]]
+      [:a.nav-link (nav-helper "/features") "Features"]]
      [:li.nav-item
-      [:a.nav-link {:href "#pricing"} "Pricing"]]
+      [:a.nav-link (nav-helper "/pricing") "Pricing"]]
      [:li.nav-item
-      [:a.nav-link {:href "#about"} "About"]]]
+      [:a.nav-link (nav-helper "/about") "About"]]]
     [:ul.nav.navbar-nav.pull-right
      [:li.nav-item
-      [:a.nav-link {:href "#login"} "Login"]]
+      [:a.nav-link (nav-helper "/login") "Login"]]
      [:li.nav-item
-      [:a.nav-link {:href "#register"} "Register"]]]]])
+      [:a.nav-link (nav-helper "/register") "Register"]]]]])
 
 (defn footer
   []
@@ -155,9 +191,6 @@
    [page-component]
    application))
 
-;; set secretary to use # for the routing, eg. /#dashboard
-(secretary/set-config! :prefix "#")
-
 (defroute "/" [] (page home-anonymous))
 (defroute "/dashboard" [] (page home-authenticated))
 (defroute "/features" [] (page features))
@@ -167,10 +200,11 @@
 (defroute "/register" [] (page register))
 (defroute "*" [] (page not-found))
 
-;; Quick and dirty history configuration.
-(let [h (History.)]
-  (goog.events/listen h EventType/NAVIGATE #(secretary/dispatch! (.-token %)))
-  (doto h (.setEnabled true)))
+;; init the html5-history support
+(goog.events/listen history
+                    EventType.NAVIGATE
+                    #(handle-url-change %))
+(.setEnabled history true)
 
 ;; load the data from the API
 (fetch-chunks)
