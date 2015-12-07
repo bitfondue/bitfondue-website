@@ -69,6 +69,8 @@
                                             :img      v/required
                                             :tab_info v/required
                                             :html     v/required))
+(def serve-html5-app
+  (slurp "resources/public/index.html"))
 
 (defroutes app-routes
   (GET "/dashboard" [] home)
