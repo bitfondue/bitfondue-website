@@ -73,13 +73,13 @@
   (slurp "resources/public/index.html"))
 
 (defroutes app-routes
-  (GET "/dashboard" [] home)
   (GET "/" [] serve-html5-app)
   (GET "/features" [] serve-html5-app)
   (GET "/pricing" [] serve-html5-app)
   (GET "/about" [] serve-html5-app)
   (GET "/login" [] serve-html5-app)
   (GET "/register" [] serve-html5-app)
+  (GET "/dashboard" [] serve-html5-app)
   (GET "/chunks" [] chunks)
   (POST "/login" [] login)
   (POST "/upload" [] upload)
