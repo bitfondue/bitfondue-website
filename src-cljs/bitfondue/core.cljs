@@ -93,17 +93,18 @@
 
 (defn footer
   []
-  [:div.container.footer
-   [:div.row
-    [:div.col-md-4
-     [:ul
-      [:li [:a {:href "http://blog.bitfondue.com"} "Blog"]]
-      [:li [:a {:href "https://github.com/bitfondue"} "GitHub"]]]]
-    [:div.col-md-4]
-    [:div.col-md-4
-     [:ul
-      [:li [:a {:href "https://twitter.com/bitfondue"} "Twitter"]]
-      [:li [:a {:href "https://twitter.com/bitfondue"} "Facebook"]]]]]])
+  [:div.footer
+   [:div.container
+    [:div.row
+     [:div.col-md-4
+      [:ul
+       [:li [:a {:href "http://blog.bitfondue.com"} "Blog"]]
+       [:li [:a {:href "https://github.com/bitfondue"} "GitHub"]]]]
+     [:div.col-md-4]
+     [:div.col-md-4
+      [:ul
+       [:li [:a {:href "https://twitter.com/bitfondue"} "Twitter"]]
+       [:li [:a {:href "https://twitter.com/bitfondue"} "Facebook"]]]]]]])
 
 
 (defn layout
