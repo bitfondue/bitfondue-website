@@ -78,3 +78,13 @@ div.chunk-content {
   border-top-left-radius: 0px;
   border-top-right-radius: 0px;
 }
+
+/* Footer */
+div.footer {
+  background: #f7f7f9;
+  padding-top: 20px;
+}
+div.footer ul {
+  list-style: none;
+  padding: 0px;
+}

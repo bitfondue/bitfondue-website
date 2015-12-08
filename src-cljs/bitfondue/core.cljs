@@ -93,7 +93,7 @@
 
 (defn footer
   []
-  [:div.container
+  [:div.container.footer
    [:div.row
     [:div.col-md-4
      [:ul
