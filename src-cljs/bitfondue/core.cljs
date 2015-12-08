@@ -98,7 +98,12 @@
     [:div.col-md-4
      [:ul
       [:li [:a {:href "http://blog.bitfondue.com"} "Blog"]]
-      [:li [:a {:href "https://github.com/bitfondue"} "GitHub"]]]]]])
+      [:li [:a {:href "https://github.com/bitfondue"} "GitHub"]]]]
+    [:div.col-md-4]
+    [:div.col-md-4
+     [:ul
+      [:li [:a {:href "https://twitter.com/bitfondue"} "Twitter"]]
+      [:li [:a {:href "https://twitter.com/bitfondue"} "Facebook"]]]]]])
 
 
 (defn layout
