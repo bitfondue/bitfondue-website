@@ -83,8 +83,13 @@ div.chunk-content {
 div.footer {
   background: #f7f7f9;
   padding-top: 20px;
-}
-div.footer ul {
-  list-style: none;
-  padding: 0px;
+
+  ul {
+    list-style: none;
+    padding: 0px;
+
+    a {
+      color: rgba(0,0,0,0.3);
+    }
+  }
 }
