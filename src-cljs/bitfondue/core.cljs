@@ -44,7 +44,7 @@
 
 (defn chunk-card
   [chunk]
-  [:div.col-sm-4
+  [:div.col-sm-4.chunk
    [:img.card-img-top {:src (str "/images/"
                                  (:uid chunk)
                                  ".png")}]
