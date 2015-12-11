@@ -102,20 +102,7 @@
 (defn header
   []
   [:nav.navbar.navbar-light.bg-faded
-   [:div.container
-    [:a.navbar-brand (nav-helper "/") "bitfondue"]
-    [:ul.nav.navbar-nav
-     [:li.nav-item
-      [:a.nav-link (nav-helper "/features") "Features"]]
-     [:li.nav-item
-      [:a.nav-link (nav-helper "/pricing") "Pricing"]]
-     [:li.nav-item
-      [:a.nav-link (nav-helper "/about") "About"]]]
-    [:ul.nav.navbar-nav.pull-right
-     [:li.nav-item
-      [:a.nav-link (nav-helper "/login") "Login"]]
-     [:li.nav-item
-      [:a.nav-link (nav-helper "/register") "Register"]]]]])
+   [anonymous-header]])
 
 (defn footer
   []
