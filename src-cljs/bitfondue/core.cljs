@@ -130,7 +130,11 @@
    [footer]])
 
 (defn home-anonymous []
-  [layout [:h1 "Home"]])
+  [layout [:div.jumbotron
+           [:h1 "Save all the pages!"]
+           [:p.lead "Saving things without the hassle of tagging."]
+           [:p.lead
+            [:a.btn.btn-primary.btn-lg (nav-helper "/register") "Register"]]]])
 
 (defn home-authenticated []
   [layout [chunks]])
