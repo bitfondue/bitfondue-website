@@ -95,6 +95,19 @@ div.chunk {
   }
 }
 
+/* Credits */
+div.credits {
+  ul {
+    list-style: none;
+    padding: 0px;
+
+    li {
+      margin-bottom: 10px;
+      display: block;
+    }
+  }
+}
+
 /* Footer */
 div.footer {
   background: rgb(38, 47, 54);
