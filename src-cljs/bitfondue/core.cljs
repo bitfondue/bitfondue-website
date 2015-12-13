@@ -125,7 +125,7 @@
   [:div
    [header]
    [:br]
-   [:div.container content]
+   content
    [:br]
    [footer]])
 
@@ -137,16 +137,23 @@
             [:a.btn.btn-primary.btn-lg (nav-helper "/register") "Register"]]]])
 
 (defn home-authenticated []
-  [layout [chunks]])
+  [layout
+   [:div.container [chunks]]])
 
 (defn features []
-  [layout [:h1 "Features"]])
+  [layout
+   [:div.container
+    [:h1 "Features"]]])
 
 (defn pricing []
-  [layout [:h1 "Pricing"]])
+  [layout
+   [:div.container
+    [:h1 "Pricing"]]])
 
 (defn about []
-  [layout [:h1 "About"]])
+  [layout
+   [:div.container [:h1 "About"]]])
+
 
 (def login-form
   [:div.col-md-offset-3.col-md-6
@@ -178,10 +185,14 @@
     [:button.btn.btn-primary {:type "submit"} "Login"]]])
 
 (defn login []
-  [layout [:div.row login-form]])
+  [layout
+   [:div.container
+    [:div.row login-form]]])
 
 (defn register []
-  [layout [:div.row register-form]])
+  [layout
+   [:div.container
+    [:div.row register-form]]])
 
 (defn not-found []
   [layout [:h1 "404 - Page not found"]])
