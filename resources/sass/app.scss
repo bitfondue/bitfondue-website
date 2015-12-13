@@ -67,6 +67,19 @@
   }
 }
 
+/* Jumbotron */
+div.jumbotron {
+  background-color: transparent;
+  h1 {
+    font-weight: 700;
+    font-size: 50px;
+  }
+  a {
+    background-color: transparent;
+    color: rgb(2, 117, 216);
+  }
+}
+
 /* Cards */
 div.chunk {
   img.card-img-top {
