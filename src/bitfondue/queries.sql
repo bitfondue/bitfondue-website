@@ -16,6 +16,7 @@ VALUES (:username,:email,:password);
 SELECT id, title, created_on, url, description_full, uid
 FROM chunks
 ORDER BY id
+DESC
 LIMIT 30;
 
 -- name: insert-chunk<!
