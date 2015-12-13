@@ -97,15 +97,32 @@ div.chunk {
 
 /* Footer */
 div.footer {
-  background: #f7f7f9;
-  padding-top: 20px;
+  background: rgb(38, 47, 54);
+  padding-top: 40px;
+  padding-bottom: 40px;
 
   ul {
     list-style: none;
     padding: 0px;
 
-    a {
-      color: rgba(0,0,0,0.3);
+    h6 {
+      color: #fff;
+      text-transform: uppercase;
+      font-weight: 500;
+      font-size: 13px;
+      letter-spacing: 1.95px;
     }
+
+    a {
+      color: rgba(255, 255, 255, 0.701961);
+      font-weight: 300;
+      font-size: 15px;
+      margin-bottom: 3px;
+      line-height: 21px;
+    }
+  }
+
+  img {
+    width: 140px;
   }
 }
