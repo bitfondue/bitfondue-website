@@ -109,15 +109,22 @@
   [:div.footer
    [:div.container
     [:div.row
-     [:div.col-md-4
+     [:div.col-md-3
       [:ul
+       [:li [:h6 "Social"]]
        [:li [:a {:href "http://blog.bitfondue.com"} "Blog"]]
-       [:li [:a {:href "https://github.com/bitfondue"} "GitHub"]]]]
-     [:div.col-md-4]
-     [:div.col-md-4
-      [:ul
+       [:li [:a {:href "https://github.com/bitfondue"} "GitHub"]]
        [:li [:a {:href "https://twitter.com/bitfondue"} "Twitter"]]
-       [:li [:a {:href "https://twitter.com/bitfondue"} "Facebook"]]]]]]])
+       [:li [:a {:href "https://twitter.com/bitfondue"} "Facebook"]]]]
+     [:div.col-md-3
+      [:ul
+       [:li [:h6 "Legal"]]
+       [:li [:a (nav-helper "/privacy-policy") "Privacy Policy"]]
+       [:li [:a (nav-helper "/terms-of-service") "Terms of Service"]]
+       [:li [:a (nav-helper "/security") "Security"]]
+       [:li [:a (nav-helper "/credits") "Credits"]]]]
+     [:div.col-md-offset-3.col-md-3
+      [:img {:src "/icons/noun_28353_cc.svg"}]]]]])
 
 
 (defn layout
@@ -155,6 +162,20 @@
   [layout
    [:div.container [:h1 "About"]]])
 
+(defn credits []
+  [layout
+   [:div.credits
+    [:div.jumbotron
+     [:div.container
+      [:h1 "Credits"]]]
+    [:div.container
+     [:div.row.section
+      [:div.col-md-12
+       [:h3 "Visuals"]
+       [:ul
+        [:li
+         [:a {:href "https://thenounproject.com/search/?q=%20fondue&i=28353"} "Fondue by Claire Jones from the Noun Project"]
+         [:p "Strawberry icon used in the footer"]]]]]]]])
 
 (def login-form
   [:div.col-md-offset-3.col-md-6
@@ -231,6 +252,7 @@
 (defroute "/features" [] (page features))
 (defroute "/pricing" [] (page pricing))
 (defroute "/about" [] (page about))
+(defroute "/credits" [] (page credits))
 (defroute "/login" [] (page login))
 (defroute "/register" [] (page register))
 (defroute "*" [] (page not-found))
