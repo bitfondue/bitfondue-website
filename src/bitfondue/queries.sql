@@ -13,7 +13,7 @@ VALUES (:username,:email,:password);
 
 -- name: get-chunks
 -- retrieve chunks
-SELECT id, title, created_on, url, description_full, uid
+SELECT id, title, created_on, url, description_full, uid, data
 FROM chunks
 ORDER BY id
 DESC
@@ -22,5 +22,5 @@ LIMIT 30;
 -- name: insert-chunk<!
 -- insert a new chunk
 INSERT INTO chunks
-(title, url, description_full, uid)
-VALUES (:title, :url, :description_full, :uid);
+(title, url, description_full, uid, data)
+VALUES (:title, :url, :description_full, :uid, :data::jsonb);
