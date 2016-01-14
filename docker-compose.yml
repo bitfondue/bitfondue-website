@@ -13,8 +13,8 @@ database:
 
 web:
   restart: always
-  build: .
   expose:
     - 80
+  image: quay.io/bitfondue/bitfondue-website:latest
   environment:
     VIRTUAL_HOST: bitfondue.*

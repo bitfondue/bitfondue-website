@@ -1,6 +1,7 @@
 # bitfondue
 
 [![Circle CI](https://circleci.com/gh/bitfondue/bitfondue-website.svg?style=svg)](https://circleci.com/gh/bitfondue/bitfondue-website)
+[![Docker Repository on Quay](https://quay.io/repository/bitfondue/bitfondue-website/status "Docker Repository on Quay")](https://quay.io/repository/bitfondue/bitfondue-website)
 
 Another approach at keeping things you've found on the web.
 
