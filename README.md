@@ -2,6 +2,7 @@
 
 [![Circle CI](https://circleci.com/gh/bitfondue/bitfondue-website.svg?style=svg)](https://circleci.com/gh/bitfondue/bitfondue-website)
 [![Docker Repository on Quay](https://quay.io/repository/bitfondue/bitfondue-website/status "Docker Repository on Quay")](https://quay.io/repository/bitfondue/bitfondue-website)
+[![wercker status](https://app.wercker.com/status/5f5af9f094c5119e764ac5f429bff4b0/m "wercker status")](https://app.wercker.com/project/bykey/5f5af9f094c5119e764ac5f429bff4b0)
 
 Another approach at keeping things you've found on the web.
 
