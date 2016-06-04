@@ -13,3 +13,9 @@
   {:access-key (env :aws-key)
    :secret-key (env :aws-secret)
    :bucket     (env :aws-bucket)})
+
+(def email
+  {:user (env :sendgrid-username)
+   :pass (env :sendgrid-password)
+   :host "smtp.sendgrid.net"
+   :port 587})
