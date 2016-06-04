@@ -92,18 +92,19 @@
                                 :options {:alg :a256kw :enc :a128gcm}}))
 
 (defn basic-authenticated?
-  "Basic authentication for staging servers"
+  "Basic authentication for the staging server"
   [username password]
-  (let [env-username (env :basic-authentication-username)
-        env-password (env :basic-authentication-password)]
-    (if (or (nil? env-username)
-            (nil? env-password))
-      true
-      (and (= username env-username)
-           (= password env-password)))))
+  (and (= username (env :basic-authentication-username))
+       (= password (env :basic-authentication-password))))
+
+(defn wrap-if
+  "Only add a certain middleware if conditions are met."
+  [handler pred wrapper & args]
+  (if pred
+    (apply wrapper handler args)
+    handler))
 
 (def app (-> app-routes
-             (wrap-basic-authentication basic-authenticated?)
              (wrap-authorization auth-backend)
              (wrap-authentication auth-backend)
              (wrap-json-response {:pretty false})
@@ -112,7 +113,9 @@
              (wrap-params)
              (wrap-keyword-params)
              (wrap-json-params)
-             ))
+             (wrap-if (not (or (nil? (env :basic-authentication-username))
+                               (nil? (env :basic-authentication-password))))
+                      wrap-basic-authentication basic-authenticated?)))
 
 (defn -main [port]
   (run-jetty app {:port (read-string port) :join? false}))
