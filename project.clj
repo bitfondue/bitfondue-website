@@ -73,7 +73,8 @@
                                              {:optimizations :advanced
                                               :pretty-print false}}}}}}
 
-  :ring {:handler bitfondue.handler/app}
+  :ring {:handler bitfondue.handler/app
+         :nrepl {:start? true}}
   :uberjar-name "bitfondue-standalone.jar"
   :main bitfondue.handler
   :min-lein-version "2.5.0"
