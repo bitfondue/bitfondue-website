@@ -1,0 +1,8 @@
+{
+  "name": "bitfondue",
+  "description": "Application definition to run bitfondue on heroku",
+  "image": "heroku/clojure",
+  "addons": [
+    "heroku-postgresql"
+  ]
+}
