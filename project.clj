@@ -23,6 +23,7 @@
                  [com.taoensso/timbre "4.1.0"]
                  [amazonica "0.3.39"]
                  [ring-basic-authentication "1.0.5"]
+                 [com.draines/postal "2.0.0"]
 
                  ;; front-end dependencies
                  [reagent "0.5.0"]
