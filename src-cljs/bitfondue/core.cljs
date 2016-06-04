@@ -115,7 +115,7 @@
        [:li [:a {:href "http://blog.bitfondue.com"} "Blog"]]
        [:li [:a {:href "https://github.com/bitfondue"} "GitHub"]]
        [:li [:a {:href "https://twitter.com/bitfondue"} "Twitter"]]
-       [:li [:a {:href "https://twitter.com/bitfondue"} "Facebook"]]]]
+       [:li [:a {:href "https://www.facebook.com/bitfondue"} "Facebook"]]]]
      [:div.col-md-3
       [:ul
        [:li [:h6 "Legal"]]
