@@ -8,7 +8,8 @@
                              [params :refer [wrap-params]]
                              [multipart-params :refer [wrap-multipart-params]]
                              [keyword-params :refer [wrap-keyword-params]]
-                             [json :refer [wrap-json-response wrap-json-body wrap-json-params]])
+                             [json :refer [wrap-json-response wrap-json-body wrap-json-params]]
+                             [basic-authentication :refer [wrap-basic-authentication]])
             [hiccup.core :as h]
             [clj-time.core :as time]
             [buddy.sign.jwe :as jwe]
@@ -20,7 +21,8 @@
             [taoensso.timbre :as log]
             [bitfondue.config :as config]
             (bitfondue.models [users :as users]
-                              [chunks :as chunks]))
+                              [chunks :as chunks])
+            [environ.core :refer [env]])
   (:use [ring.adapter.jetty :as ring]
         [clojure.pprint]
         [amazonica.aws.s3]
@@ -89,7 +91,19 @@
 (def auth-backend (jwe-backend {:secret config/token-secret
                                 :options {:alg :a256kw :enc :a128gcm}}))
 
+(defn basic-authenticated?
+  "Basic authentication for staging servers"
+  [username password]
+  (let [env-username (env :basic-authentication-username)
+        env-password (env :basic-authentication-password)]
+    (if (or (nil? env-username)
+            (nil? env-password))
+      true
+      (and (= username env-username)
+           (= password env-password)))))
+
 (def app (-> app-routes
+             (wrap-basic-authentication basic-authenticated?)
              (wrap-authorization auth-backend)
              (wrap-authentication auth-backend)
              (wrap-json-response {:pretty false})
