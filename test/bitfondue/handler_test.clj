@@ -4,6 +4,6 @@
   (:use midje.sweet))
 
 (fact "The root route / is returning a 200 status code"
-  (->> (mock/request :get "/")
+  (->> (mock/header (mock/request :get "/") "X-Forwarded-Proto" "https")
        app
        :status) => 200)
