@@ -1,7 +1,7 @@
 (ns bitfondue.config
   (:require [environ.core :refer [env]]))
 
-(defn env-default
+(defn ^:private env-default
   "Read environment variable and return default if not provided."
   [env-key env-default-val]
   (let [env-val (env env-key)]
