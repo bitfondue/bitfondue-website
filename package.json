@@ -1,12 +1,7 @@
 {
   "name": "bitfondue-website",
   "version": "0.0.1",
-  "description": "[![Circle CI](https://circleci.com/gh/bitfondue/bitfondue-website.svg?style=svg)](https://circleci.com/gh/bitfondue/bitfondue-website)",
-  "main": "index.js",
-  "directories": {
-    "doc": "doc",
-    "test": "test"
-  },
+  "description": "Utilities for the bitfondue-website project",
   "scripts": {
     "postinstall": "./node_modules/.bin/bower install && ./node_modules/.bin/gulp"
   },
@@ -14,7 +9,7 @@
     "type": "git",
     "url": "git+https://github.com/bitfondue/bitfondue-website.git"
   },
-  "author": "",
+  "author": "Philipp Kueng <github@philippkueng.ch>",
   "bugs": {
     "url": "https://github.com/bitfondue/bitfondue-website/issues"
   },
@@ -26,7 +21,10 @@
     "gulp-sass": "^2.1.0"
   },
   "engines": {
-    "node": ">= 4.2.1",
-    "npm": ">= 2.14.7"
+    "node": ">= 4.3.2",
+    "npm": ">= 2.14.12"
+  },
+  "devDependencies": {
+    "foreman": "^1.4.1"
   }
 }
