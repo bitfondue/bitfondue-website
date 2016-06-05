@@ -7,7 +7,9 @@
   (let [env-val (env env-key)]
     (if (nil? env-val)
       env-default-val
-      env-val)))
+      (if (number? env-default-val)
+        (read-string env-val)
+        env-val))))
 
 (def database
   (env :database-url))
@@ -29,4 +31,4 @@
    :port 587})
 
 (def ssl
-  {:ssl-port (read-string (env-default :ssl-port 443))})
+  {:ssl-port (env-default :ssl-port 443)})
