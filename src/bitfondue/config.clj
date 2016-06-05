@@ -29,4 +29,4 @@
    :port 587})
 
 (def ssl
-  {:ssl-port (env-default :ssl-port 443)})
+  {:ssl-port (read-string (env-default :ssl-port 443))})
