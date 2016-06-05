@@ -14,13 +14,13 @@ Another approach at keeping things you've found on the web.
 
 1. Copy the `.env.dist` file to `.env_dev` and fill in your custom settings.
 1. Make sure you have foreman installed.
-1. Start the development server with `foreman run -e .env_dev lein ring server-headless`
+1. Start the development server with `./node_modules/.bin/nf run -e .env_dev lein ring server-headless`
 
 ### Database
 
 1. Make sure you have a PostgreSQL server running. `v9.4.1` or higher
 1. Create a database for the project to use `psql -c "create database bitfondue_dev"`
-1. `foreman run -e .env_dev lein migrate`
+1. `./node_modules/.bin/nf run -e .env_dev lein migrate`
 
 ## Staging/production
 
