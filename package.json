@@ -25,6 +25,6 @@
     "npm": ">= 2.14.12"
   },
   "devDependencies": {
-    "foreman": "^1.4.1"
+    "foreman": "https://github.com/strongloop/node-foreman#984f2c2"
   }
 }
