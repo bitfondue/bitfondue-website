@@ -1,6 +1,14 @@
 (ns bitfondue.config
   (:require [environ.core :refer [env]]))
 
+(defn env-default
+  "Read environment variable and return default if not provided."
+  [env-key env-default-val]
+  (let [env-val (env env-key)]
+    (if (nil? env-val)
+      env-default-val
+      env-val)))
+
 (def database
   (env :database-url))
 
@@ -19,3 +27,6 @@
    :pass (env :sendgrid-password)
    :host "smtp.sendgrid.net"
    :port 587})
+
+(def ssl
+  {:ssl-port (env-default :ssl-port 443)})

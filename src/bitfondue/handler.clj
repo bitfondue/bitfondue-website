@@ -9,7 +9,8 @@
                              [multipart-params :refer [wrap-multipart-params]]
                              [keyword-params :refer [wrap-keyword-params]]
                              [json :refer [wrap-json-response wrap-json-body wrap-json-params]]
-                             [basic-authentication :refer [wrap-basic-authentication]])
+                             [basic-authentication :refer [wrap-basic-authentication]]
+                             [ssl :refer [wrap-ssl-redirect wrap-forwarded-scheme]])
             [hiccup.core :as h]
             [clj-time.core :as time]
             [buddy.sign.jwe :as jwe]
@@ -115,7 +116,9 @@
              (wrap-json-params)
              (wrap-if (not (or (nil? (env :basic-authentication-username))
                                (nil? (env :basic-authentication-password))))
-                      wrap-basic-authentication basic-authenticated?)))
+                      wrap-basic-authentication basic-authenticated?)
+             (wrap-ssl-redirect config/ssl)
+             (wrap-forwarded-scheme)))
 
 (defn -main [port]
   (run-jetty app {:port (read-string port) :join? false}))
