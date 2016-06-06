@@ -3,7 +3,7 @@
   :url "https://bitfondue.com"
   :license {:name "MIT License"
             :url "http://opensource.org/licenses/MIT"}
-  :dependencies [[org.clojure/clojure "1.7.0"]
+  :dependencies [[org.clojure/clojure "1.8.0"]
                  [org.clojure/clojurescript "1.7.122"]
 
                  ;; backend dependencies
@@ -16,8 +16,8 @@
                  [yesql "0.5.1"]
                  [org.postgresql/postgresql "9.4-1201-jdbc41"]
                  [cheshire "5.5.0"]
-                 [buddy/buddy-core "0.7.0"]
-                 [buddy/buddy-auth "0.7.0"]
+                 [buddy/buddy-core "0.12.1"]
+                 [buddy/buddy-auth "1.0.0"]
                  [hiccup "1.0.5"]
                  [bouncer "0.3.3"]
                  [com.taoensso/timbre "4.1.0"]
