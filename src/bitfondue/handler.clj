@@ -13,7 +13,9 @@
                              [ssl :refer [wrap-ssl-redirect wrap-forwarded-scheme]])
             [hiccup.core :as h]
             [clj-time.core :as time]
+            [buddy.sign.jwt :as jwt]
             [buddy.sign.jwe :as jwe]
+            [buddy.core.nonce :as nonce]
             [buddy.auth :refer [authenticated? throw-unauthorized]]
             [buddy.auth.backends.token :refer [jwe-backend]]
             [buddy.auth.middleware :refer [wrap-authentication wrap-authorization]]
@@ -29,6 +31,8 @@
         [amazonica.aws.s3]
         [amazonica.aws.s3transfer :exclude [upload]])
   (:gen-class))
+
+(def secret (nonce/random-bytes 32))
 
 (defn ok [d] {:status 200 :body d})
 (defn bad-request [d] {:status 400 :body d})
@@ -49,15 +53,15 @@
 
 (defn login
   [request]
-  (let [username (get-in request [:body :username])
-        password (get-in request [:body :password])
+  (let [username (get (:params request) "username")
+        password (get (:params request) "password")
         valid? (some-> authdata
                        (get (keyword username))
                        (= password))]
     (if valid?
       (let [claims {:user (keyword username)
                     :exp (time/plus (time/now) (time/seconds 3600))}
-            token (jwe/encrypt claims config/token-secret {:alg :a256kw :enc :a128gcm})]
+            token (jwt/encrypt claims secret {:alg :a256kw :enc :a128gcm})]
         (ok {:token token}))
       (bad-request {:message "wrong auth data"}))))
 
@@ -89,7 +93,7 @@
   (route/resources "/")
   (route/not-found "Not Found"))
 
-(def auth-backend (jwe-backend {:secret config/token-secret
+(def auth-backend (jwe-backend {:secret secret
                                 :options {:alg :a256kw :enc :a128gcm}}))
 
 (defn basic-authenticated?
