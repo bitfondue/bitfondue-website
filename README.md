@@ -38,7 +38,7 @@ open /Applications/Utilities/Keychain\ Access.app bitfondue.dev.crt
 
 1. Make sure you have a PostgreSQL server running. `v9.4.1` or higher
 1. Create a database for the project to use `psql -c "create database bitfondue_dev"`
-1. `./node_modules/.bin/nf run -e .env_dev lein migrate`
+1. `make migrate`
 
 ## Staging/production
 
