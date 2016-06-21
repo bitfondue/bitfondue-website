@@ -1,5 +1,6 @@
 install: 	## Install Clojure dependencies
 					@echo "Installing Clojure dependencies"
+					@npm install
 					@lein deps
 
 start:	## Start a development server
