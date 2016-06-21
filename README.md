@@ -31,8 +31,8 @@ open /Applications/Utilities/Keychain\ Access.app bitfondue.dev.crt
 ### REPL
 
 1. Copy the `.env.dist` file to `.env_dev` and fill in your custom settings.
-1. Install the npm dependencies `npm install`
-1. Start the development server with `./node_modules/.bin/nf --procfile Procfile_dev -e .env_dev start --ssl-key bitfondue.dev.key --ssl-cert bitfondue.dev.crt -x 5001`
+1. Install all dependencies with `make install`
+1. Start the development server with `make start`
 
 ### Database
 
